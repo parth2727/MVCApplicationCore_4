@@ -1,0 +1,38 @@
+﻿@model Product
+<h1>Product Details</h1>
+
+<div>
+    <h4>Category Name         : @Model.Category.Name</h4>
+    <h4>Product Name          : @Model.ProductName</h4>
+    <h4>Product Description   : @Model.ProductDescription</h4>
+    <h4>Product Price         : @Model.ProductPrice</h4>
+    <h4>
+        Available             :
+        @if (Model.InStock)
+        {
+            <td>Avilable </td>
+        }
+        else
+        {
+            <td>Not Avilable</td>
+        }
+
+    </h4>
+    <h4>
+        Active                :
+
+        @if (Model.IsActive)
+        {
+            <td>Visible </td>
+        }
+        else
+        {
+            <td>Not Visible </td>
+        }
+    </h4>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.ProductId">Delete</a>
+</p>

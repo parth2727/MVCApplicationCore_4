@@ -1,0 +1,23 @@
+﻿@model List<Order>
+@foreach (var order in Model)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Price</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderPrice</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+            </tr>
+            <tr>
+                @Html.Partial("_OrderItemPartialView", @order.OrderItem)
+            </tr>
+        </tbody>
+    </table>
+}

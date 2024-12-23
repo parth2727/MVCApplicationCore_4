@@ -1,0 +1,60 @@
+﻿@model Product
+<h1>Delete Product</h1>
+<div>
+    <h4>Are you sure ypu want to delete this product ?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Product Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Category.Name
+        </dd>
+
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ProductDescription
+        </dd>
+        <dd class="col-sm-10">
+            @Model.ProductPrice
+        </dd>
+        <dd class="col-sm-10">
+            @if (Model.InStock)
+            {
+                <td>
+                    Available
+                </td>
+            }
+            else
+            {
+                <td>
+                    Not available
+                </td>
+            }
+        </dd>
+        <dd class="col-sm-10">
+            @if (Model.IsActive)
+            {
+                <td>
+                    Visible
+                </td>
+            }
+            else
+            {
+                <td>
+                    Not visible
+                </td>
+            }
+        </dd>
+    </dl>
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="ProductId" />
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />|
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+    </form>
+</div>

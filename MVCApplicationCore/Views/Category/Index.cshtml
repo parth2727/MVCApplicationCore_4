@@ -1,0 +1,7 @@
+﻿@model List<Category>
+
+<h1>Categories</h1>
+@Html.Partial("_CategoryListPartialView",Model)
+
+<a asp-action="Create">Add</a>
+@Html.Partial("_CategoryPartialView")
